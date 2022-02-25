@@ -1,0 +1,343 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+       <meta name="viewport" content="width=device-width, initial-scale=1">
+        <title>Virtual Keyboard</title>
+        <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.6.1/dist/css/bootstrap.min.css">
+        <script src="https://cdn.jsdelivr.net/npm/jquery@3.5.1/dist/jquery.slim.min.js"></script>
+        <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.1/dist/umd/popper.min.js"></script>
+        <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.6.1/dist/js/bootstrap.bundle.min.js"></script>
+        
+        <style>
+            @font-face {
+              font-family: thisFont;
+              src: url(VCR_OSD_MONO_1.001.ttf);
+            }
+            
+            body{
+                background-color: #3349d8; 
+                font-family: thisFont, serif; 
+                margin-left:7%;
+                margin-right:7%;
+            }
+            
+            .play{
+                font-size: 75px;
+                color:#EFFBF9; 
+                display: inline-block; 
+            }
+            
+            p{
+                margin:0; 
+            }
+            
+            .date{
+               font-size: 75px;
+                color:#EFFBF9; 
+                float:right; 
+                text-align: right;
+            }
+            
+            .form-cont{
+                margin-top:4%;
+                height:auto;
+            }
+            
+            .form-cont-text{
+                font-size: 50px;
+                color:#EFFBF9; 
+            }
+            
+            .form{
+                border-radius: 20px; 
+                background-color: #E5EBEA; 
+                padding-top:1.7%;
+                padding-bottom:1.7%;
+                padding-left:3%;
+                padding-right:1%;
+                display: flex;
+                justify-content: space-between;
+                
+            }
+            
+            .form-text{
+                color:#23339D; 
+                font-size: 60px;
+                line-height: 1.3;
+            }
+            
+            .text-cont{
+                word-wrap: break-word; 
+                width:90%;
+            }
+            
+            .clear{
+                margin-left: 2%;
+                position: relative;
+            }
+            
+            .clear-text{
+                font-size: 60px;
+                background-color: #3349D8; 
+                border-radius: 50%; 
+                color:#EFFBF9; 
+                padding-top:2%;
+                padding-bottom:2%;
+                
+            }
+            
+            .clear-text:hover{
+                background-color: #3E55ED;
+            }
+            
+            .keyboard-cont{
+                margin-top:5%;
+            }
+            
+            .btn{
+                font-size: 30px;
+                background-color: #E5EBEA;
+                padding-left:3%;
+                padding-right:3%;
+                padding-top:0px;
+                padding-bottom:0px;
+                color:#23339D; 
+                display:inline-block;
+            }
+            
+            .btn-margin{
+                margin-left: 1.93%;
+            }
+            
+            .btn2{
+                padding-left:3.5%;
+                padding-right:3.5%;
+            }
+            
+            .btn-margin2{
+                margin-left: 2.09%;
+            }
+            
+            .second-row{
+                margin-top:2%;
+            }
+            
+            .third-row{
+                margin-top:2%;
+            }
+            
+            .space{
+                margin-top:2%;
+            }
+            
+            .space button{
+                padding-left:46.5%;
+                padding-right:46.5%;
+            }
+
+        </style>
+        
+        
+    </head>
+    
+    <body>
+        <header>
+            <div class="play">
+                <p>PLAY</p>
+            </div>
+            
+            <div class="date">
+                <div id="myTime"></div>
+            </div>
+        </header>
+        
+        <div class="form-cont">
+            <div class="form-cont-text">
+                <p>ENTER A CHANNEL</p>
+            </div>
+            
+            <div class="form">
+                <div class="text-cont">
+                    <p class="form-text" id="myText">YOUNG-LUV.COM</p>
+                </div>
+                
+                <div class="clear" onclick="typeClear()">
+                    <p class="clear-text">&nbsp;X&nbsp;</p>
+                </div>
+            </div>
+        </div>
+        
+        <div class="keyboard-cont">
+            <div class="first-row">
+                <button class="btn" onclick="typeQ()">Q</button>
+                <button class="btn btn-margin" onclick="typeW()">W</button>
+                <button class="btn btn-margin" onclick="typeE()">E</button>
+                <button class="btn btn-margin" onclick="typeR()">R</button>
+                <button class="btn btn-margin" onclick="typeT()">T</button>
+                <button class="btn btn-margin" onclick="typeY()">Y</button>
+                <button class="btn btn-margin" onclick="typeU()">U</button>
+                <button class="btn btn-margin" onclick="typeI()">I</button>
+                <button class="btn btn-margin" onclick="typeO()">O</button>
+                <button class="btn btn-margin" onclick="typeP()">P</button>
+            </div>
+            <div class="second-row">
+                <button class="btn" onclick="typeA()">A</button>
+                <button class="btn btn-margin" onclick="typeS()">S</button>
+                <button class="btn btn-margin" onclick="typeD()">D</button>
+                <button class="btn btn-margin" onclick="typeF()">F</button>
+                <button class="btn btn-margin" onclick="typeG()">G</button>
+                <button class="btn btn-margin" onclick="typeH()">H</button>
+                <button class="btn btn-margin" onclick="typeJ()">J</button>
+                <button class="btn btn-margin" onclick="typeK()">K</button>
+                <button class="btn btn-margin" onclick="typeL()">L</button>
+                <button class="btn btn-margin" onclick="typeEnter()">←</button>
+            </div>
+            <div class="third-row">
+                <button class="btn btn2" onclick="typeZ()">Z</button>
+                <button class="btn btn-margin2 btn2" onclick="typeX()">X</button>
+                <button class="btn btn-margin2 btn2" onclick="typeC()">C</button>
+                <button class="btn btn-margin2 btn2" onclick="typeV()">V</button>
+                <button class="btn btn-margin2 btn2" onclick="typeB()">B</button>
+                <button class="btn btn-margin2 btn2" onclick="typeN()">N</button>
+                <button class="btn btn-margin2 btn2" onclick="typeM()">M</button>
+                <button class="btn btn-margin2 btn2" onclick="typeComma()">,</button>
+                <button class="btn btn-margin2 btn2" onclick="typePeriod()">.</button>
+            </div>
+            
+            <div class="space">
+                <button class="btn btn2" onclick="typeSpace()">SPACE</button>
+            </div>
+            
+        </div>
+ 
+        <script>
+            var dt = new Date();
+            document.getElementById("myTime").innerHTML = dt.toLocaleTimeString(navigator.language, {hour: '2-digit', minute:'2-digit'});
+            
+            function typeClear() {
+                document.getElementById('myText').innerHTML = ' ';
+            }
+            
+            function typeQ() {
+                document.getElementById('myText').innerHTML += 'Q';
+            }
+            
+            function typeW() {
+                document.getElementById('myText').innerHTML += 'W';
+            }
+            
+            function typeE() {
+                document.getElementById('myText').innerHTML += 'E';
+            }
+            
+            function typeR() {
+                document.getElementById('myText').innerHTML += 'R';
+            }
+            
+            function typeT() {
+                document.getElementById('myText').innerHTML += 'T';
+            }
+            
+            function typeY() {
+                document.getElementById('myText').innerHTML += 'Y';
+            }
+            
+            function typeU() {
+                document.getElementById('myText').innerHTML += 'U';
+            }
+            
+            function typeI() {
+                document.getElementById('myText').innerHTML += 'I';
+            }
+            
+            function typeO() {
+                document.getElementById('myText').innerHTML += 'O';
+            }
+            
+            function typeP() {
+                document.getElementById('myText').innerHTML += 'P';
+            }
+            
+            function typeA() {
+                document.getElementById('myText').innerHTML += 'A';
+            }
+            
+            function typeS() {
+                document.getElementById('myText').innerHTML += 'S';
+            }
+            
+            function typeD() {
+                document.getElementById('myText').innerHTML += 'D';
+            }
+            
+            function typeF() {
+                document.getElementById('myText').innerHTML += 'F';
+            }
+            
+            function typeG() {
+                document.getElementById('myText').innerHTML += 'G';
+            }
+            
+            function typeH() {
+                document.getElementById('myText').innerHTML += 'H';
+            }
+            
+            function typeJ() {
+                document.getElementById('myText').innerHTML += 'J';
+            }
+            
+            function typeK() {
+                document.getElementById('myText').innerHTML += 'K';
+            }
+            
+            function typeL() {
+                document.getElementById('myText').innerHTML += 'L';
+            }
+            
+            function typeEnter() {
+                document.getElementById('myText').innerHTML += '<br>';
+            }
+            
+            function typeZ() {
+                document.getElementById('myText').innerHTML += 'Z';
+            }
+            
+            function typeX() {
+                document.getElementById('myText').innerHTML += 'X';
+            }
+            
+            function typeC() {
+                document.getElementById('myText').innerHTML += 'C';
+            }
+            
+            function typeV() {
+                document.getElementById('myText').innerHTML += 'V';
+            }
+            
+            function typeB() {
+                document.getElementById('myText').innerHTML += 'B';
+            }
+            
+            function typeN() {
+                document.getElementById('myText').innerHTML += 'N';
+            }
+            
+            function typeM() {
+                document.getElementById('myText').innerHTML += 'M';
+            }
+            
+            function typeComma() {
+                document.getElementById('myText').innerHTML += ',';
+            }
+            
+            function typePeriod() {
+                document.getElementById('myText').innerHTML += '.';
+            }
+            
+            function typeSpace() {
+                document.getElementById('myText').innerHTML += '&nbsp;';
+            }
+        </script>
+    </body>
+</html>
